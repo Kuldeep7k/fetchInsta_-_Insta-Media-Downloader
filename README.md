@@ -75,4 +75,4 @@ Feel free to contribute to this project by submitting issues or pull requests.
 
 ## License
 
-[License]
+[License](https://github.com/Kuldeep7k/fetchInsta_-_Insta-Media-Downloader/blob/main/LICENSE)
