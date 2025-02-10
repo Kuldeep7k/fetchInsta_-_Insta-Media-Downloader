@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Instagram Downloader{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="mb-3">Download Instagram Media Easily</h1>
+    <p class="lead">Paste an Instagram post, reel, or story URL below to download media.</p>
+
+    <!-- Form for URL input -->
+    <form id="download-form" action="{{ url_for('process_url') }}" method="post" class="mt-4">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="url" id="url" placeholder="Enter Instagram URL" required>
+            <button class="btn btn-primary" type="submit">Download</button>
+        </div>
+    </form>
+
+    <!-- Processing message (hidden initially) -->
+    <div id="processing" class="processing" style="display: none;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Processing...</span>
+        </div>
+        <p>Fetching media, please wait...</p>
+    </div>
+
+    <!-- Error Alert -->
+    {% if error %}
+    <div class="alert alert-danger mt-3" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById("download-form").addEventListener("submit", function() {
+        document.getElementById("processing").style.display = "block";
+    });
+</script>
+{% endblock %}
